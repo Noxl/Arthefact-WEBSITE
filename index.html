@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arthéfact</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="fonts/amandine-regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="fonts/montserrat-light.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="icon" href="img/logo.png" type="image/png">
+</head>
+<body>
+  <div class="navbar-container">
+    <!-- Logo container -->
+    <div class="logo-container">
+      <img src="img/logo.png" alt="Art Thé Logo" class="logo">
+    </div>
+    
+    <!-- Navigation container -->
+    <div class="nav-container">
+      <!-- Top navbar with search and social -->
+      <div class="top-navbar">
+        <div class="brand-info">Arthéfact</div>
+        <div class="language-selector">
+          <a href="#" class="active">EN</a>
+          <a href="#">FR</a>
+        </div>
+        <div class="search-container">
+          <div class="search-wrapper" id="searchWrapper">
+            <input type="text" class="search-bar" placeholder="Search...">
+          </div>
+          <button class="search-toggle" id="searchToggle">🔍</button>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-icon">
+            <img src="img/icons/social/icon-insta-dot.png" alt="Instagram" class="icon-default">
+            <img src="img/icons/social/icon-insta-color.png" alt="Instagram" class="icon-hover">
+          </a>
+          <a href="#" class="social-icon">
+            <img src="img/icons/social/icon-tiktok-dot.png" alt="TikTok" class="icon-default">
+            <img src="img/icons/social/icon-tiktok-color.png" alt="TikTok" class="icon-hover">
+          </a>
+          <a href="#" class="social-icon">
+            <img src="img/icons/social/icon-youtube-dot.png" alt="YouTube" class="icon-default">
+            <img src="img/icons/social/icon-youtube-color.png" alt="YouTube" class="icon-hover">
+          </a>
+        </div>
+      </div>
+      
+      <!-- Main navigation menu -->
+      <nav class="menu">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div class="menu-items" id="menuItems">
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <li class="dropdown" id="teaDropdown">
+              <a href="#" class="dropdown-toggle">TEA</a>
+              <ul class="submenu">
+                <li><a href="#">BLACK TEA</a></li>
+                <li><a href="#">GREEN TEA</a></li>
+                <li><a href="#">WHITE TEA</a></li>
+                <li><a href="#">DARK TEA</a></li>
+              </ul>
+            </li>
+            <li><a href="#">SHOP</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">CONTACT</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Content area placeholder -->
+  <div class="content-area">
+    <h1>Welcome to Art Thé</h1>
+    <p>Discover our selection of premium organic teas, carefully sourced from the finest tea gardens around the world.</p>
+    
+    <!-- Tea categories preview -->
+    <div class="tea-categories">
+      <div class="tea-card">
+        <h3>Green Tea</h3>
+        <p>Refreshing and delicate teas with grassy notes</p>
+      </div>
+      <div class="tea-card">
+        <h3>Black Tea</h3>
+        <p>Rich and robust teas with malty flavors</p>
+      </div>
+      <div class="tea-card">
+        <h3>Herbal Tea</h3>
+        <p>Caffeine-free blends with soothing properties</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Newsletter on left -->
+      <div class="footer-newsletter">
+        <h3>Subscribe to our newsletter</h3>
+        <p>Stay updated with our latest teas and promotions</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button type="submit">Subscribe</button>
+        </div>
+      </div>
+      
+      <!-- Logo in center -->
+      <div class="footer-logo">
+        <img src="img/logo.png" alt="Art Thé Logo" class="logo">
+        <div class="footer-links">
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">Livraison</a></li>
+            <li><a href="#">Conditions Générales de Ventes</a></li>
+            <li><a href="#">Service Client</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Social links on right -->
+      <div class="footer-social">
+        <h3>Connect with us</h3>
+        <div class="social-links">
+          <a href="#" class="social-icon">
+            <img src="img/icons/social/icon-insta-dot.png" alt="Instagram" class="icon-default">
+            <img src="img/icons/social/icon-insta-color.png" alt="Instagram" class="icon-hover">
+          </a>
+          <a href="#" class="social-icon">
+            <img src="img/icons/social/icon-tiktok-dot.png" alt="TikTok" class="icon-default">
+            <img src="img/icons/social/icon-tiktok-color.png" alt="TikTok" class="icon-hover">
+          </a>
+          <a href="#" class="social-icon">
+            <img src="img/icons/social/icon-youtube-dot.png" alt="YouTube" class="icon-default">
+            <img src="img/icons/social/icon-youtube-color.png" alt="YouTube" class="icon-hover">
+          </a>
+        </div>
+      </div>
+      
+      <!-- Copyright info spans full width -->
+      <div class="footer-info">
+        <p>&copy; 2025 Arthéfact. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

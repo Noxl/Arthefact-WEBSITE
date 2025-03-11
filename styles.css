@@ -1,0 +1,604 @@
+/* ==========================================================================
+   1. FONTS
+   ========================================================================== */
+
+   @font-face {
+    font-family: 'Amandine';
+    src: url('fonts/amandine-regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat-light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* ==========================================================================
+     2. BASE STYLES
+     ========================================================================== */
+  
+  body {
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  
+  /* Typography */
+  p {
+    font-family: 'Montserrat', Arial, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Amandine', sans-serif;
+  }
+  
+  /* ==========================================================================
+     3. HEADER & NAVIGATION
+     ========================================================================== */
+  
+  /* Layout container */
+  .navbar-container {
+    display: flex;
+    height: 100px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  /* Logo */
+  .logo-container {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .logo {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+  }
+  
+  /* Navigation structure */
+  .nav-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Top navbar */
+  .top-navbar {
+    z-index: 10;
+    background-color: #f4f4f4;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+  }
+  
+  .brand-info {
+    font-family: 'Montserrat';
+    font-weight: 100;
+    color: #999;
+    font-size: 14px;
+  }
+  
+  .language-selector {
+    display: flex;
+    gap: 8px;
+    margin-left: 15px;
+  }
+  
+  .language-selector a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+  }
+  
+  .language-selector a.active {
+    color: #9e0b08;
+  }
+  
+  .language-selector a:hover:not(.active) {
+    color: #666;
+  }
+  
+  /* Search */
+  .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    color: #333;
+    z-index: 101;
+  }
+  
+  .search-wrapper {
+    display: block;
+  }
+  
+  .search-bar {
+    width: 300px;
+    max-width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .social-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .social-links .social-icon {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  
+  .social-links .social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+  }
+  
+  .social-links .social-icon .icon-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  
+  .social-links .social-icon:hover .icon-default {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  
+  .social-links .social-icon:hover .icon-hover {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* Main menu */
+  .menu {
+    background-color: white;
+    height: 60px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  }
+  
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 1.5rem;
+    padding: 15px 20px;
+    cursor: pointer;
+  }
+  
+  .menu-items {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100%;
+  }
+  
+  .menu li {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu a {
+    display: block;
+    padding: 0 20px;
+    color: #333;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-family: 'Amandine', sans-serif;
+  }
+  
+  .menu a:hover {
+    color: #9e0b08;
+    box-shadow: inset 0 -3px 0 #9e0b08;
+    background-color: rgba(158, 11, 8, 0.05);
+  }
+  
+  /* Dropdown menu */
+  .dropdown .submenu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 150px;
+    height: max-content;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    z-index: 1;
+    padding: 10px 0;
+    border-radius: 0 0 8px 8px;
+    border-top: 2px solid rgba(158, 11, 8, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+  }
+  
+  .dropdown:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0s;
+  }
+  
+  .submenu a {
+    padding: 12px 20px;
+    border-left: 3px solid transparent;
+    height: auto;
+    color: #444;
+    font-weight: normal;
+    transition: all 0.2s ease;
+  }
+  
+  .submenu a:hover {
+    background-color: #f8f8f8;
+    border-left: 3px solid rgba(158, 11, 8, 0.6);
+    color: #9e0b08;
+    padding-left: 25px;
+  }
+  
+  /* ==========================================================================
+     4. MAIN CONTENT
+     ========================================================================== */
+  
+  .content-area {
+    min-height: 500px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    margin: 120px auto 20px auto;
+    border-radius: 8px;
+    max-width: 1200px;
+  }
+  
+  .content-area h1 {
+    color: #9e0b08;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+  }
+  
+  /* Tea categories */
+  .tea-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .tea-card {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .tea-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+  }
+  
+  .tea-card h3 {
+    color: #9e0b08;
+    margin-top: 0;
+  }
+  
+  /* ==========================================================================
+     5. FOOTER
+     ========================================================================== */
+  
+  .footer {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 40px 0;
+    margin-top: 50px;
+    box-shadow: 0 -8px 30px rgba(0,0,0,0.12);
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .footer-social {
+    justify-self: end;
+  }
+  
+  .footer h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-family: 'Amandine', sans-serif;
+  }
+  
+  .footer p {
+    margin-bottom: 15px;
+    opacity: 0.8;
+  }
+  
+  .footer-links {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .footer-links ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+  }
+  
+  .footer-links li {
+    margin-bottom: 6px;
+  }
+  
+  .footer-links a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+    transition: color 0.2s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #9e0b08;
+  }
+  
+  /* Newsletter */
+  .newsletter-form {
+    display: flex;
+  }
+  
+  .newsletter-form input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .newsletter-form button {
+    padding: 10px 15px;
+    background-color: #9e0b08;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .newsletter-form button:hover {
+    background-color: #c01815;
+  }
+  
+  /* Social links */
+  .footer-social .social-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .footer-social .social-links a {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .footer-social .social-links img {
+    width: 36px;
+    height: 36px;
+    transition: all 0.3s ease;
+  }
+  
+  .footer-social .social-links .icon-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  
+  .footer-social .social-links a:hover .icon-default {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  
+  .footer-social .social-links a:hover .icon-hover {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* Footer logo */
+  .footer-logo {
+    text-align: center;
+  }
+  
+  .footer-logo img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+  }
+  
+  /* Copyright */
+  .footer-info {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ==========================================================================
+     6. RESPONSIVE STYLES
+     ========================================================================== */
+  
+  @media screen and (max-width: 768px) {
+    .navbar-container {
+      flex-direction: column;
+      height: auto;
+    }
+    
+    .logo-container {
+      display: none;
+    }
+    
+    .top-navbar {
+      flex-direction: row;
+      height: 30px;
+      padding: 5px 10px;
+    }
+    
+    .brand-info, .social-links {
+      display: flex;
+    }
+    
+    .language-selector {
+      display: inline-flex;
+    }
+    
+    .search-container {
+      flex: 1;
+      justify-content: flex-end;
+    }
+    
+    .search-toggle {
+      display: block;
+    }
+    
+    .search-wrapper {
+      display: inline-flex;
+      width: 0;
+      overflow: hidden;
+      transition: width 0.3s ease-in-out;
+      position: relative;
+      top: 0;
+      right: 0;
+      padding: 0;
+      background-color: transparent;
+      box-shadow: none;
+    }
+    
+    .search-wrapper.active {
+      width: 150px;
+    }
+    
+    .search-bar {
+      width: 100%;
+      margin: 0 5px;
+    }
+    
+    .menu {
+      height: auto;
+    }
+    
+    .menu-toggle {
+      display: block;
+    }
+    
+    .menu-items {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      align-items: flex-start;
+      height: auto;
+    }
+    
+    .menu-items.active {
+      display: flex;
+    }
+    
+    .menu ul {
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+    }
+    
+    .menu li {
+      width: 100%;
+    }
+    
+    .menu a {
+      width: 100%;
+      padding: 15px 20px;
+    }
+    
+    .dropdown .submenu {
+      position: static;
+      width: 100%;
+      box-shadow: none;
+      background-color: #f0f0f0;
+      display: none;
+      border-radius: 0;
+    }
+    
+    .dropdown.active .submenu {
+      display: block;
+    }
+    
+    .newsletter-form {
+      flex-direction: column;
+    }
+    
+    .newsletter-form input, 
+    .newsletter-form button {
+      width: 100%;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    
+    .footer-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .footer-logo {
+      order: -1;
+      margin-bottom: 20px;
+    }
+  }

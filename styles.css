@@ -186,6 +186,8 @@
     height: 60px;
     position: relative;
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
   }
   
   .menu-toggle {
@@ -196,8 +198,10 @@
     font-size: 1.5rem;
     padding: 15px 20px;
     cursor: pointer;
+    margin-right: auto;
   }
   
+  /* Menu items structure */
   .menu-items {
     height: 100%;
     display: flex;
@@ -212,6 +216,7 @@
     height: 100%;
   }
   
+  /* Style for menu links */
   .menu li {
     position: relative;
     display: flex;
@@ -325,6 +330,77 @@
   .tea-card h3 {
     color: #9e0b08;
     margin-top: 0;
+  }
+  
+  /* Product listing styles */
+  .product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .product-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .product-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-info h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: 'Amandine', sans-serif;
+  }
+  
+  .product-description {
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+  }
+  
+  .product-price {
+    color: #9e0b08;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .add-to-cart-btn {
+    background-color: #9e0b08;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #c01815;
   }
   
   /* ==========================================================================
@@ -476,13 +552,133 @@
   }
   
   /* ==========================================================================
-     6. RESPONSIVE STYLES
+     6. SNIPCART
+     ========================================================================== */
+  
+  #signin-menu-bouton,
+  #signout-menu-bouton,
+  #cart-menu-bouton {
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 4px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 5px;
+  }
+  
+  #signin-menu-bouton,
+  #signout-menu-bouton {
+    right: 90px;
+  }
+  
+  #cart-menu-bouton {
+    right: 20px;
+  }
+  
+  .button-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .button-label {
+    font-size: 10px;
+    margin-top: 4px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    text-align: center;
+  }
+  
+  #signin-menu-bouton:hover,
+  #signout-menu-bouton:hover,
+  #cart-menu-bouton:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 6px 15px rgba(158, 11, 8, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  /* Optional: Add a slightly different hover color for sign-out */
+  #signout-menu-bouton:hover {
+    background-color: #fff0f0;
+  }
+  
+  .account-icon,
+  .cart-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+  
+  /* Hide the regular checkout button */
+  .snipcart-checkout:not(#cart-menu-bouton) {
+    display: none;
+  }
+  
+  /* Cart item count indicator */
+  .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #9e0b08;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  #cart-menu-bouton[data-item-count]:not([data-item-count="0"]) .cart-count {
+    opacity: 1;
+  }
+  
+  /* Customize Snipcart modal */
+  .snipcart-modal__container {
+    z-index: 1001;
+  }
+  
+  .snipcart-cart-button--highlight {
+    background-color: #9e0b08 !important;
+  }
+  
+  .snipcart-cart-button--highlight:hover {
+    background-color: #c01815 !important;
+  }
+  
+  .snipcart__icon--blue-light path,
+  .snipcart__icon--blue path {
+    fill: #9e0b08 !important;
+  }
+  
+  .snipcart-cart-header__option {
+    color: #9e0b08 !important;
+  }
+  
+  /* ==========================================================================
+     7. RESPONSIVE STYLES
      ========================================================================== */
   
   @media screen and (max-width: 768px) {
     .navbar-container {
       flex-direction: column;
       height: auto;
+      position: relative;
     }
     
     .logo-container {
@@ -536,10 +732,45 @@
     
     .menu {
       height: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     
     .menu-toggle {
       display: block;
+      margin-right: auto;
+      margin-left: 15px;
+      order: -1;
+    }
+    
+    #signin-menu-bouton,
+    #signout-menu-bouton,
+    #cart-menu-bouton {
+      height: 46px;
+      width: 46px;
+      padding: 4px;
+      top: 5px;
+    }
+    
+    #signin-menu-bouton,
+    #signout-menu-bouton {
+      right: 75px;
+    }
+    
+    #cart-menu-bouton {
+      right: 15px;
+    }
+    
+    .account-icon,
+    .cart-icon {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .button-label {
+      font-size: 8px;
+      margin-top: 2px;
     }
     
     .menu-items {
@@ -552,6 +783,7 @@
     
     .menu-items.active {
       display: flex;
+      padding-top: 50px;
     }
     
     .menu ul {
@@ -580,6 +812,10 @@
     
     .dropdown.active .submenu {
       display: block;
+    }
+    
+    .product-container {
+      grid-template-columns: 1fr;
     }
     
     .newsletter-form {

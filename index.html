@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,14 @@
   <link rel="preload" href="fonts/montserrat-light.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="icon" href="img/logo.png" type="image/png">
 </head>
+
 <body>
   <div class="navbar-container">
     <!-- Logo container -->
     <div class="logo-container">
       <img src="img/logo.png" alt="Art Thé Logo" class="logo">
     </div>
-    
+
     <!-- Navigation container -->
     <div class="nav-container">
       <!-- Top navbar with search and social -->
@@ -46,10 +48,17 @@
           </a>
         </div>
       </div>
-      
+
       <!-- Main navigation menu -->
       <nav class="menu">
         <button class="menu-toggle" id="menuToggle">☰</button>
+        <button id="signin-menu-bouton" class="snipcart-customer-signin" data-label="Sign In">
+          <img src="img/icons/account.png" alt="Sign In" class="account-icon">
+        </button>
+        <button id="cart-menu-bouton" class="snipcart-checkout" data-label="Cart">
+          <img src="img/icons/cart.png" alt="Cart" class="cart-icon">
+          <span class="cart-count">0</span>
+        </button>
         <div class="menu-items" id="menuItems">
           <ul>
             <li><a href="#">HOME</a></li>
@@ -66,29 +75,82 @@
             <li><a href="#">ABOUT</a></li>
             <li><a href="#">CONTACT</a></li>
           </ul>
-        </div>
+        </div>  
       </nav>
     </div>
   </div>
 
   <!-- Content area placeholder -->
   <div class="content-area">
-    <h1>Welcome to Art Thé</h1>
+    <h1>Our Premium Tea Collection</h1>
     <p>Discover our selection of premium organic teas, carefully sourced from the finest tea gardens around the world.</p>
-    
-    <!-- Tea categories preview -->
-    <div class="tea-categories">
-      <div class="tea-card">
-        <h3>Green Tea</h3>
-        <p>Refreshing and delicate teas with grassy notes</p>
+
+    <!-- Product listing with Snipcart integration -->
+    <div class="product-container">
+      <div class="product-card">
+        <img src="img/products/green-tea.jpg" alt="Premium Green Tea" class="product-image">
+        <div class="product-info">
+          <h3>Premium Green Tea</h3>
+          <p class="product-description">A refreshing green tea with delicate floral notes</p>
+          <p class="product-price">€12.95</p>
+          <button 
+            class="add-to-cart-btn snipcart-add-item"
+            data-item-id="green-tea-1"
+            data-item-price="12.95"
+            data-item-url="/products/green-tea"
+            data-item-description="Premium organic green tea with delicate floral notes"
+            data-item-image="img/products/green-tea.jpg"
+            data-item-name="Premium Green Tea"
+            data-item-weight="100"
+            data-item-taxes="VAT"
+            data-item-quantity="1">
+            Add to Cart
+          </button>
+        </div>
       </div>
-      <div class="tea-card">
-        <h3>Black Tea</h3>
-        <p>Rich and robust teas with malty flavors</p>
+      
+      <div class="product-card">
+        <img src="img/products/black-tea.jpg" alt="Earl Grey Black Tea" class="product-image">
+        <div class="product-info">
+          <h3>Earl Grey Black Tea</h3>
+          <p class="product-description">A classic black tea with bergamot essence</p>
+          <p class="product-price">€14.50</p>
+          <button 
+            class="add-to-cart-btn snipcart-add-item"
+            data-item-id="black-tea-1"
+            data-item-price="14.50"
+            data-item-url="/products/black-tea"
+            data-item-description="Classic Earl Grey black tea with bergamot essence"
+            data-item-image="img/products/black-tea.jpg"
+            data-item-name="Earl Grey Black Tea"
+            data-item-weight="100"
+            data-item-taxes="VAT"
+            data-item-quantity="1">
+            Add to Cart
+          </button>
+        </div>
       </div>
-      <div class="tea-card">
-        <h3>Herbal Tea</h3>
-        <p>Caffeine-free blends with soothing properties</p>
+      
+      <div class="product-card">
+        <img src="img/products/herbal-tea.jpg" alt="Chamomile Herbal Tea" class="product-image">
+        <div class="product-info">
+          <h3>Chamomile Herbal Tea</h3>
+          <p class="product-description">Soothing caffeine-free herbal blend</p>
+          <p class="product-price">€9.95</p>
+          <button 
+            class="add-to-cart-btn snipcart-add-item"
+            data-item-id="herbal-tea-1"
+            data-item-price="9.95"
+            data-item-url="/products/herbal-tea"
+            data-item-description="Soothing caffeine-free chamomile herbal blend"
+            data-item-image="img/products/herbal-tea.jpg"
+            data-item-name="Chamomile Herbal Tea"
+            data-item-weight="75"
+            data-item-taxes="VAT"
+            data-item-quantity="1">
+            Add to Cart
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -105,7 +167,7 @@
           <button type="submit">Subscribe</button>
         </div>
       </div>
-      
+
       <!-- Logo in center -->
       <div class="footer-logo">
         <img src="img/logo.png" alt="Art Thé Logo" class="logo">
@@ -119,7 +181,7 @@
           </ul>
         </div>
       </div>
-      
+
       <!-- Social links on right -->
       <div class="footer-social">
         <h3>Connect with us</h3>
@@ -138,7 +200,7 @@
           </a>
         </div>
       </div>
-      
+
       <!-- Copyright info spans full width -->
       <div class="footer-info">
         <p>&copy; 2025 Arthéfact. All rights reserved.</p>
@@ -146,6 +208,20 @@
     </div>
   </footer>
 
+  <!-- Script file-->
   <script src="scripts.js"></script>
+
+  <!-- Snipcart-->
+  <script>
+    window.SnipcartSettings = {
+        publicApiKey: 'N2Q3NmYyMDMtYjg1Mi00ZWFlLWJiMjItYzJlYTI3NjMzZjk0NjM4NzcwMjYwNDAyMDU2Mjc4',
+        modalStyle: 'side',
+        currency: 'eur',
+    };
+
+    (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+  </script>
+
 </body>
+
 </html>
